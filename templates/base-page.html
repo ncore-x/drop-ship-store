@@ -44,12 +44,16 @@
 							<ul>
                                 <li class="language-dropdown dropdown">
                                     <a href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Log In/Register
+                                    {% if user.is_authenticated %}
+										{{ user.username }}
+									{% else %}
+										Log In/Register
+									{% endif %}
                                     <i class="fas fa-arrow-down"></i></a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="./auth/login.html">Log In</a>
-                                        <a class="dropdown-item" href="./auth/register.html">Register</a>
-                                        <a class="dropdown-item" href="#">Log Out</a>
+                                        <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+                                        <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                                        <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
                                     </div>
                                 </li>
                             </ul>
