@@ -1,0 +1,59 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Fill Products
+{% endblock title %}
+
+{% block container %}
+		<!-- content start -->
+	<div class="main-content-wrapper">
+		<section class="breadcrumb-section about">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-5">
+						<div class="breadcrumb-wrapper">
+							<h2>Filling Products for Shop</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<div>
+		<section class="section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-5"></div>
+					<div class="col-lg-7 col-md-7">
+						<div class="main-heading-block">
+							<form method="post" action="{% url 'fill_database' %}">
+								{% csrf_token %}
+								<button class="learn-more-btn" name="fill_database" type="submit" onclick="runSpinner()">
+									<span class="spinner spinner-border spinner-border-sm" role="status" id="spinner"
+										  style="visibility: hidden" aria-hidden="true"></span>
+									run scraping for fill database
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		{% if message %}
+			<div class="container">
+				<div class="row">
+					<div class="main-heading-block">
+						<h2>Errors of scraping: <br><br>
+							<span style="color:red"> {{message}}</span>
+						</h2>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+	<br><br><br><br><br>
+		<!-- content end -->
+{% endblock container %}
