@@ -1,0 +1,70 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Shop
+{% endblock title %}
+
+{% block container %}
+	<!-- content start -->
+	<div class="main-content-wrapper">
+		<section class="breadcrumb-section about">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-5">
+						<div class="breadcrumb-wrapper">
+							<h2>Our Shop</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-9 ">
+						<div class="main-heading-block">
+							<h2 class="main-heading">BEST PROPOSALS</h2>
+							<!-- <p>EXERCITATIONEM ULLAM CORPORIS</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+
+                    {% for product in object_list %}
+					<div class="col-12 col-lg-4 col-md-6 item">
+                        <div class="card" style="width: 18rem;">
+                            <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                                <img src="{{product.image_url}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{ product.name}}</b></h5>
+                                    <p class="card-text">
+                                        {{ product.description }}
+                                    </p>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Price: {{ product.price }}</li>
+                                    <li class="list-group-item">
+										{% csrf_token %}
+										<label class="form-label" for="id_quantity">Quantity:</label>
+										<input type="number" name="quantity" value="1" min="1"
+											   required id="id_quantity"/>
+                                    </li>
+                                </ul>
+                                <div class="card-body">
+                                    <button class="learn-more-btn" type="submit">buy now</button>
+                                    <a class="contactus-bar-btn f_right" href="{% url 'shop_detail' product.pk %}">detail</a>
+                                    <br><br>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- content end -->
+{% endblock container %}

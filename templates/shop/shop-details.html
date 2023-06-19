@@ -1,0 +1,64 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Shopp Details
+{% endblock title %}
+
+{% block container %}
+	<!-- content start -->
+	<div class="main-content-wrapper">
+		<section class="breadcrumb-section about">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-5">
+						<div class="breadcrumb-wrapper">
+							<h2>Item Detail</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-12 col-lg-9 ">
+						<div class="main-heading-block">
+							<h2 class="main-heading">Item Detail</h2>
+							<!-- <p>EXERCITATIONEM ULLAM CORPORIS</p> -->
+						</div>
+					</div>
+				</div>
+				<div class="row">
+
+
+					<div class="col-12 col-lg-4 col-md-3 item">
+                    </div>
+					<div class="col-12 col-lg-4 col-md-6 item">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{product.image_url}}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><b>{{ product.name}}</b></h5>
+                                <p class="card-text">
+                                    {{ product.description }}
+                                </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Price: {{ product.code }}</li>
+                                <li class="list-group-item">Price: {{ product.price }}</li>
+                            </ul>
+                            <div class="card-body">
+                                <a class="learn-more-btn" href="#">buy now</a>
+                                <a class="contactus-bar-btn f_right" href="{% url 'shop' %}">return</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+				</div>
+			</div>
+		</section>
+	</div>
+	<!-- content end -->
+{% endblock container %}
