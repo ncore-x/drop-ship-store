@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Register
+	Register
 {% endblock title %}
 
 {% block container %}
@@ -17,17 +17,15 @@
 			</div>
 		</div>
 		{% for field in user_form %}
-		
 		<div class="row">
 			<div class="col-12 col-lg-4 col-md-4 offset-md-4">
 				<div class="quote-form-wrapper">
 					<span style="color: red">{{ field.errors }}</span>
-					{{ field.label_tag }}
+					{{ field.label_tag}}
 					{{ field }}
 				</div>
 			</div>
 		</div>
-
 		{% endfor %}
 		<div class="row">
 			<div class="col-12 col-lg-4 col-md-4 offset-md-4">

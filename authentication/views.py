@@ -22,7 +22,7 @@ def login_user(request):
         else:
             context = {
                 'login_form': login_form,
-                }
+            }
 
     return render(request, 'auth/login.html', context)
 
@@ -46,6 +46,7 @@ class RegisterView(TemplateView):
 
         context = {'user_form': user_form}
         return render(request, 'auth/register.html', context)
+
 
 def logout_user(request):
     logout(request)

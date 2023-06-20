@@ -131,5 +131,6 @@ STATICFILES_DIRS = (
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# scraping
 URL_SCRAPING = 'https://www.stroysa.tomsk.ru/catalog/profilnye_truby_ugolki/'
 URL_SCRAPING_DOMAIN = 'https://www.stroysa.tomsk.ru'

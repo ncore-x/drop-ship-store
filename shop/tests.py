@@ -2,8 +2,7 @@ from decimal import Decimal
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.utils import timezone
-import zoneinfo
-
+from backports import zoneinfo
 from shop.models import Product, Payment, OrderItem, Order
 
 

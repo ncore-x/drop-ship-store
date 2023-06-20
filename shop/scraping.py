@@ -83,7 +83,6 @@ def scraping():
 
         print(data)
 
-
     for item in data_list:
         if not Product.objects.filter(code=item['code']).exists():
             Product.objects.create(
@@ -99,4 +98,3 @@ def scraping():
 
 if __name__ == '__main__':
     scraping()
-

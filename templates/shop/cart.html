@@ -2,122 +2,122 @@
 {% load static %}
 
 {% block title %}
-    Cart
+Cart
 {% endblock title %}
 
 {% block container %}
-	<!-- content start -->
-	<div class="main-content-wrapper">
-		<section class="breadcrumb-section about">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-12 col-lg-5">
-						<div class="breadcrumb-wrapper">
-							<h2>Cart</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="section">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-12 col-lg-9 ">
-						<div class="main-heading-block">
-							<h2 class="main-heading">Cart</h2>
-							<!-- <p>EXERCITATIONEM ULLAM CORPORIS</p> -->
-						</div>
-					</div>
-				</div>
-                <hr class="hr"/>
-				<div class="row" style="font-weight: bold">
-					<div class="col-12 col-md-1 item">
-                        &nbsp;&nbsp;&nbsp;##
-                    </div>
-					<div class="col-12 col-md-4 item">
-                        Item
-                    </div>
-					<div class="col-12 col-md-2 item">
-                        Quantity
-                    </div>
-					<div class="col-12 col-md-2 item">
-                        Price
-                    </div>
-					<div class="col-12 col-md-2 item">
-                        Amount
-                    </div>
-					<div class="col-12 col-md-1 item">
-                        Action
+<!-- content start -->
+<div class="main-content-wrapper">
+    <section class="breadcrumb-section about">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-5">
+                    <div class="breadcrumb-wrapper">
+                        <h2>Cart</h2>
                     </div>
                 </div>
-                <hr class="hr"/>
+            </div>
+        </div>
+    </section>
 
-                {% if not items %}
-                    <br><br>
-                    <div class="row">
-                        <div class="col-12 offset-md-6">
-                            <h2 style="font-size: large">No Data</h2>
-                        </div>
-                    </div>
-                    <br><br>
-                {% else %}
-
-                    {% for item in items %}
-                        <div class="row">
-                            <div class="col-12 col-md-1 item">
-                                &nbsp;&nbsp;&nbsp;{{ forloop.counter }}
-                            </div>
-                            <div class="col-12 col-md-4 item">
-                                {{ item.product }}
-                            </div>
-                            <div class="col-12 col-md-2 item">
-                                {{ item.quantity }}
-                            </div>
-                            <div class="col-12 col-md-2 item">
-                                {{ item.price }}
-                            </div>
-                            <div class="col-12 col-md-2 item">
-                                {{ item.amount }}
-                            </div>
-                            <div class="col-12 col-md-1 item">
-                                <form method="post" action="{% url 'cart_delete_item' item.pk %}">
-                                    {% csrf_token %}
-                                    <button type="submit" style="color: blue"><u>delete</u></button>
-                                </form>
-                            </div>
-                        </div>
-                    {% endfor %}
-
-                {% endif %}
-
-                <hr class="hr"/>
-
-				<div class="row" style="font-weight: bold">
-                    <div class="col-12 col-md-7 item">
-                    </div>
-                    <div class="col-12 col-md-2 item">
-                         Total Amount
-                    </div>
-                    <div class="col-12 col-md-2 item">
-                        {{ cart.amount }}
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 ">
+                    <div class="main-heading-block">
+                        <h2 class="main-heading">Cart</h2>
+                        <!-- <p>EXERCITATIONEM ULLAM CORPORIS</p> -->
                     </div>
                 </div>
-
-                <hr class="hr"/>
-
-				<div class="row" style="font-weight: bold">
-                    <div class="col-12 col-md-10 item">
-                    </div>
-                    <div class="col-12 col-md-10 item">
-                        <a class="contactus-bar-btn f_right" href="{% url 'make_order' %}">
-                            Process to Payment
-                        </a>
-                    </div>
+            </div>
+            <hr class="hr" />
+            <div class="row" style="font-weight: bold">
+                <div class="col-12 col-md-1 item">
+                    &nbsp;&nbsp;&nbsp;##
                 </div>
+                <div class="col-12 col-md-4 item">
+                    Item
+                </div>
+                <div class="col-12 col-md-2 item">
+                    Quantity
+                </div>
+                <div class="col-12 col-md-2 item">
+                    Price
+                </div>
+                <div class="col-12 col-md-2 item">
+                    Amount
+                </div>
+                <div class="col-12 col-md-1 item">
+                    Action
+                </div>
+            </div>
+            <hr class="hr" />
 
-			</div>
-		</section>
-	</div>
-	<!-- content end -->
+            {% if not items %}
+            <br><br>
+            <div class="row">
+                <div class="col-12 offset-md-6">
+                    <h2 style="font-size: large">No Data</h2>
+                </div>
+            </div>
+            <br><br>
+            {% else %}
+
+            {% for item in items %}
+            <div class="row">
+                <div class="col-12 col-md-1 item">
+                    &nbsp;&nbsp;&nbsp;{{ forloop.counter }}
+                </div>
+                <div class="col-12 col-md-4 item">
+                    {{ item.product }}
+                </div>
+                <div class="col-12 col-md-2 item">
+                    {{ item.quantity }}
+                </div>
+                <div class="col-12 col-md-2 item">
+                    {{ item.price }}
+                </div>
+                <div class="col-12 col-md-2 item">
+                    {{ item.amount }}
+                </div>
+                <div class="col-12 col-md-1 item">
+                    <form method="post" action="{% url 'cart_delete_item' item.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" style="color: blue"><u>delete</u></button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <hr class="hr" />
+
+            <div class="row" style="font-weight: bold">
+                <div class="col-12 col-md-7 item">
+                </div>
+                <div class="col-12 col-md-2 item">
+                    Total Amount
+                </div>
+                <div class="col-12 col-md-2 item">
+                    {{ cart.amount }}
+                </div>
+            </div>
+
+            <hr class="hr" />
+
+            <div class="row" style="font-weight: bold">
+                <div class="col-12 col-md-10 item">
+                </div>
+                <div class="col-12 col-md-10 item">
+                    <a class="contactus-bar-btn f_right" href="{% url 'make_order' %}">
+                        Process to Payment
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+<!-- content end -->
 {% endblock container %}
